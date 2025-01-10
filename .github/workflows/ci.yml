@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v1  # Use v1 to avoid setup issues
+        uses: actions/setup-java@v2  # Updated to v2 for improved compatibility
         with:
           java-version: '11'
-          distribution: 'adoptopenjdk'  # Explicitly specify the JDK distribution
+          distribution: 'adoptopenjdk'  # Explicitly define the JDK distribution
 
       - name: Install Gradle
         run: |
