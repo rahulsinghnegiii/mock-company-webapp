@@ -8,15 +8,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v2  # Updated to v2 for improved compatibility
+        uses: actions/setup-java@v2  # Use version 2 for stability
         with:
           java-version: '11'
-          distribution: 'adoptopenjdk'  # Explicitly define the JDK distribution
+          distribution: 'adoptopenjdk'  # Use a reliable JDK distribution
 
       - name: Install Gradle
         run: |
@@ -24,7 +25,7 @@ jobs:
           unzip gradle-7.4.2-bin.zip
           sudo mv gradle-7.4.2 /opt/gradle
           sudo ln -s /opt/gradle/bin/gradle /usr/local/bin/gradle
-          gradle -v  # Verify Gradle installation
+          gradle -v  # Ensure Gradle is installed
 
       - name: Build the application
         run: ./gradlew assemble
